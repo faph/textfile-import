@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+formatType=0 for fixed width files
+formatType=1 for delimited files
+-->
+<formats>
+  <format>
+    <name>Timestudio (.tsf)</name>
+    <fileName>
+      <extension>tsf</extension>
+    </fileName>
+    <firstDataLine>1</firstDataLine>
+    <fileFormat>
+      <type>0</type>
+    </fileFormat>
+    <date>
+      <yearStartChar>7</yearStartChar>
+      <monthStartChar>4</monthStartChar>
+      <dayStartChar>1</dayStartChar>
+    </date>
+    <time>
+      <hourStartChar>14</hourStartChar>
+      <minuteStartChar>17</minuteStartChar>
+    </time>
+    <value>
+      <startChar>23</startChar>
+      <endChar>37</endChar>
+    </value>
+    <qualityFlag>
+      <startChar>38</startChar>
+      <endChar>42</endChar>
+      <missingValueFlag>Q255</missingValueFlag>
+    </qualityFlag>
+  </format>
+  <format>
+    <name>WISKI, SEPA Edinburgh (*.txt)</name>
+    <fileName>
+      <extension>txt</extension>
+    </fileName>
+    <firstDataLine>22</firstDataLine>
+    <fileFormat>
+      <type>1</type>
+      <columnDelimiter>,</columnDelimiter>
+    </fileFormat>
+    <date>
+      <column>1</column>
+      <yearStartChar>7</yearStartChar>
+      <monthStartChar>4</monthStartChar>
+      <dayStartChar>1</dayStartChar>
+    </date>
+    <time>
+      <column>1</column>
+      <hourStartChar>12</hourStartChar>
+      <minuteStartChar>15</minuteStartChar>
+    </time>
+    <value>
+      <column>2</column>
+    </value>
+    <qualityFlag>
+      <column>3</column>
+      <missingValueFlag>M</missingValueFlag>
+      <missingValueValue>-999</missingValueValue>
+    </qualityFlag>
+  </format>
+  <format>
+    <name>WISKI (*.zrx)</name>
+    <fileName>
+      <extension>zrx</extension>
+    </fileName>
+    <firstDataLine>6</firstDataLine>
+    <fileFormat>
+      <type>0</type>
+    </fileFormat>
+    <date>
+      <yearStartChar>1</yearStartChar>
+      <monthStartChar>5</monthStartChar>
+      <dayStartChar>7</dayStartChar>
+    </date>
+    <time>
+      <hourStartChar>9</hourStartChar>
+      <minuteStartChar>11</minuteStartChar>
+    </time>
+    <value>
+      <startChar>16</startChar>
+      <endChar>99</endChar>
+    </value>
+    <qualityFlag>
+      <missingValueValue>-777</missingValueValue>
+    </qualityFlag>
+  </format>
+  <format>
+    <name>POL (*.txt)</name>
+    <fileName>
+      <extension>txt</extension>
+    </fileName>
+    <firstDataLine>12</firstDataLine>
+    <fileFormat>
+      <type>0</type>
+    </fileFormat>
+    <date>
+      <yearStartChar>9</yearStartChar>
+      <monthStartChar>14</monthStartChar>
+      <dayStartChar>17</dayStartChar>
+    </date>
+    <time>
+      <hourStartChar>20</hourStartChar>
+      <minuteStartChar>23</minuteStartChar>
+    </time>
+    <value>
+      <startChar>28</startChar>
+      <endChar>40</endChar>
+    </value>
+    <qualityFlag>
+      <missingValueValue>-99</missingValueValue>
+    </qualityFlag>
+  </format>
+  <format>
+    <name>WISKI (*.all)</name>
+    <fileName>
+      <extension>all</extension>
+    </fileName>
+    <firstDataLine>19</firstDataLine>
+    <fileFormat>
+      <type>1</type>
+      <columnDelimiter>\t</columnDelimiter>
+    </fileFormat>
+    <date>
+      <column>1</column>
+      <yearStartChar>7</yearStartChar>
+      <monthStartChar>4</monthStartChar>
+      <dayStartChar>1</dayStartChar>
+    </date>
+    <time>
+      <column>2</column>
+      <hourStartChar>1</hourStartChar>
+      <minuteStartChar>4</minuteStartChar>
+    </time>
+    <value>
+      <column>3</column>
+    </value>
+    <qualityFlag>
+      <column>4</column>
+      <missingValueFlag>M</missingValueFlag>
+    </qualityFlag>
+  </format>
+  <format>
+    <name>Random (*.txt)</name>
+    <fileName>
+      <extension>txt</extension>
+    </fileName>
+    <firstDataLine>2</firstDataLine>
+    <fileFormat>
+      <type>1</type>
+      <columnDelimiter>\t</columnDelimiter>
+    </fileFormat>
+    <date>
+      <column>1</column>
+      <yearStartChar>7</yearStartChar>
+      <monthStartChar>4</monthStartChar>
+      <dayStartChar>1</dayStartChar>
+    </date>
+    <time>
+      <column>1</column>
+      <hourStartChar>12</hourStartChar>
+      <minuteStartChar>15</minuteStartChar>
+    </time>
+    <value>
+      <column>2</column>
+    </value>
+  </format>
+  <format>
+    <name>WISKI EA East Midlands (*.csv)</name>
+    <fileName>
+      <extension>csv</extension>
+    </fileName>
+    <firstDataLine>2</firstDataLine>
+    <fileFormat>
+      <type>1</type>
+      <columnDelimiter>,</columnDelimiter>
+    </fileFormat>
+    <date>
+      <column>1</column>
+      <yearStartChar>7</yearStartChar>
+      <monthStartChar>4</monthStartChar>
+      <dayStartChar>1</dayStartChar>
+    </date>
+    <time>
+      <column>1</column>
+      <hourStartChar>12</hourStartChar>
+      <minuteStartChar>15</minuteStartChar>
+    </time>
+    <value>
+      <column>4</column>
+    </value>
+  </format>
+  <format>
+    <name>EA daily (*.txt)</name>
+    <fileName>
+      <extension>txt</extension>
+    </fileName>
+    <firstDataLine>19</firstDataLine>
+    <fileFormat>
+      <type>1</type>
+      <columnDelimiter>\t</columnDelimiter>
+    </fileFormat>
+    <date>
+      <column>1</column>
+      <yearStartChar>7</yearStartChar>
+      <monthStartChar>4</monthStartChar>
+      <dayStartChar>1</dayStartChar>
+    </date>
+    <time>
+      <column>5</column>
+      <hourStartChar>3</hourStartChar>
+      <minuteStartChar>3</minuteStartChar>
+    </time>
+    <value>
+      <column>2</column>
+    </value>
+  </format>
+</formats>
+
+
+
+
+
+
+
+
