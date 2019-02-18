@@ -21,8 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package fap.dssgui.plugins;
+package hec.dssgui.plugins.textfileimport;
 
+import hec.dssgui.plugins.textfileimport.SwingWorker;
 import hec.dssgui.ListSelection;
 import java.awt.Cursor;
 import java.beans.PropertyChangeEvent;
@@ -291,7 +292,7 @@ public class ImportDialog extends javax.swing.JDialog implements PropertyChangeL
         HelpSet hs;
         ClassLoader cl = ImportDialog.class.getClassLoader();
         try {
-            URL hsURL = HelpSet.findHelpSet(cl, "javahelp/org/fap/dssgui/plugins/textfileimporter/docs/master.hs");
+            URL hsURL = HelpSet.findHelpSet(cl, "hec/dssgui/plugins/textfileimport/docs/master.hs");
             hs = new HelpSet(null, hsURL);
         } catch (Exception e) {
             Logger.getLogger(ImportDialog.class.getName()).log(Level.SEVERE, null, e);
