@@ -6,6 +6,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -265,9 +266,10 @@ public class ImportDialog extends javax.swing.JDialog implements PropertyChangeL
 
     private void setUpHelp() {
         HelpSet hs;
+        ClassLoader cl = ImportDialog.class.getClassLoader();
         try {
-            java.net.URL url = this.getClass().getResource("/ImportTimeSeries/help/master.hs");
-            hs = new HelpSet(null, url);
+            URL hsURL = HelpSet.findHelpSet(cl, "javahelp/org/fap/dssgui/plugins/textfileimporter/docs/master.hs");
+            hs = new HelpSet(null, hsURL);
         } catch (Exception e) {
             Logger.getLogger(ImportDialog.class.getName()).log(Level.SEVERE, null, e);
             return;

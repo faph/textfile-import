@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE toc
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 2.0//EN"
+         "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+<toc version="2.0">
+  <tocitem text="Time series import" target="general.about">
+    <tocitem text="Basic time series importing" target="import.basic"/>
+    <tocitem text="Preparing time series data files" target="import.dataprep"/>
+    <tocitem text="Creating import filters" target="filters.create" expand="true">
+      <tocitem text="Fixed-width data files" target="filters.create.fixed"/>
+      <tocitem text="Delimited data files" target="filters.create.delimited"/>
+      <tocitem text="Example: fixed-width filter" target="filters.example.fixed"/>
+      <tocitem text="Example: delimited filter" target="filters.example.delimited"/>
+    </tocitem>
+  </tocitem>
+</toc>
+
+
