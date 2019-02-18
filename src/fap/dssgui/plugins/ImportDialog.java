@@ -277,7 +277,7 @@ public class ImportDialog extends javax.swing.JDialog implements PropertyChangeL
     private void populateComponents() {
         foldersHistoryHandler = new HistoryHandler(folderCombo, "importFolders");
 
-        XmlHandler formatsXmlHandler = new XmlHandler("ImportTimeSeries/filters/ImportFilters.xml");
+        XmlHandler formatsXmlHandler = new XmlHandler("ImportFilters.xml");
         formatsXmlHandler.pushToCombo("/formats/format[*]/name", importTypeCombo);
         if (importTypeCombo.getItemCount() > 0) {
             importTypeCombo.setSelectedIndex(PreferencesHandler.getPreferenceInt("importTypeDefault"));
