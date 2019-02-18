@@ -23,6 +23,7 @@ public class ControlImportPlugin {
         FlatPanelButton pdmButton = new FlatPanelButton("Import...");
         pdmButton.addActionListener(new ActionListener() {
 
+            @Override
             public void actionPerformed(ActionEvent e) {
                 String currentDirectory = listSelection.getDSSFilename();
                 if (currentDirectory == null || currentDirectory.length() == 0) {
@@ -30,7 +31,6 @@ public class ControlImportPlugin {
                             "No file selected", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
-
                 ImportDialog importDialog = new ImportDialog(_listSelection, false);
                 importDialog.setLocationRelativeTo(listSelection);
                 importDialog.setVisible(true);
