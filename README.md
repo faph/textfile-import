@@ -3,6 +3,10 @@ Text file import
 
 [HEC-DSSVue][HEC1] plugin for importing time series data from plain text files.
 
+:warning: Inexperienced developer at work warning: you may see some pretty bad
+code in this repo. I was still at the hack-this-together-how-does-java-work 
+stage!
+
 Installation
 ------------
 
