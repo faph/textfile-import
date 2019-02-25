@@ -107,7 +107,8 @@ public class XmlHandler {
             XPathExpression expr = xpath.compile(path);
             Object resultObj = expr.evaluate(xmlDom, XPathConstants.STRING);
             result = (String) resultObj;
-        } catch (Exception e) {
+        } catch (XPathExpressionException ex) {
+            Logger.getLogger(XmlHandler.class.getName()).log(Level.SEVERE, null, ex);
             result = "";
         }
         return result;
@@ -118,8 +119,9 @@ public class XmlHandler {
         try {
             XPathExpression expr = xpath.compile(path);
             Object resultObj = expr.evaluate(xmlDom, XPathConstants.NUMBER);
-            result = (Integer) resultObj;
-        } catch (Exception e) {
+            result = ((Double) resultObj).intValue();
+        } catch (XPathExpressionException ex) {
+            Logger.getLogger(XmlHandler.class.getName()).log(Level.SEVERE, null, ex);
             result = 0;
         }
         return result;
@@ -131,7 +133,8 @@ public class XmlHandler {
             XPathExpression expr = xpath.compile(path);
             Object resultObj = expr.evaluate(xmlDom, XPathConstants.NUMBER);
             result = (Double) resultObj;
-        } catch (Exception e) {
+        } catch (XPathExpressionException ex) {
+            Logger.getLogger(XmlHandler.class.getName()).log(Level.SEVERE, null, ex);
             result = 0;
         }
         return result;

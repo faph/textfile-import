@@ -40,20 +40,20 @@ import java.io.RandomAccessFile;
 public class Importer {
 
     private String dssFileName;
-    private int progress,  progressUpdateInterval;
+    private int progress, progressUpdateInterval;
     private String message;
     private java.beans.PropertyChangeSupport propertyChangeSupport = new java.beans.PropertyChangeSupport(this);
-    private String importFolder,  fileExtension,  fileNamePartsDelimiter = "_";
+    private String importFolder, fileExtension, fileNamePartsDelimiter = "_";
     private int importFormat; //format taken from xml file, int idicates item in xml, starting at 0
     //formatting parameters
     private int firstDataLine;
     private int formatType; //0=fixed width, 1=delimited
-    private int yearStartChar,  monthStartChar,  dayStartChar,  hourStartChar,  minuteStartChar;
-    private int valueStartChar,  valueEndChar,  flagStartChar,  flagEndChar;
+    private int yearStartChar, monthStartChar, dayStartChar, hourStartChar, minuteStartChar;
+    private int valueStartChar, valueEndChar, flagStartChar, flagEndChar;
     private String missingValueFlag;
     private double missingValueValue;
     private String columnDelimiter;
-    private int dateColumn,  timeColumn,  dateTimeColumn,  valueColumn,  flagColumn;
+    private int dateColumn, timeColumn, dateTimeColumn, valueColumn, flagColumn;
     private int dataQualityChecking; //0=dont, 1=check flag, 2=replace specific value, 3=both
 
     /**
@@ -69,7 +69,7 @@ public class Importer {
     }
 
     private void getFormatParameters() {
-        XmlHandler formatsXmlHandler = new XmlHandler("ImportTimeSeries/filters/ImportFilters.xml");
+        XmlHandler formatsXmlHandler = new XmlHandler("ImportFilters.xml");
         int formatIndex = importFormat + 1;
         String xPathPart1 = "/formats/format[" + formatIndex + "]/";
         fileExtension = formatsXmlHandler.getNodeTextValue(xPathPart1 + "fileName/extension");
@@ -260,9 +260,9 @@ public class Importer {
                 intervalUnit = "MIN";
             }
             //full name/path to store data into DSS database
-            fullName = "/" + timeSeriesContainer.watershed + "/" + timeSeriesContainer.location + "/" +
-                    timeSeriesContainer.parameter + "//" + intervalText + intervalUnit + "/" +
-                    timeSeriesContainer.version + "/";
+            fullName = "/" + timeSeriesContainer.watershed + "/" + timeSeriesContainer.location + "/"
+                    + timeSeriesContainer.parameter + "//" + intervalText + intervalUnit + "/"
+                    + timeSeriesContainer.version + "/";
             timeSeriesContainer.fullName = fullName;
             setMessage("DSS location: " + fullName);
 
@@ -281,20 +281,14 @@ public class Importer {
         } catch (IOException e) {
         }
 
-
     }
 
     private HecTime getStartDateFromFile(File file, int lineNumber) {
         HecTime result = new HecTime();
-         String  line = "", dateString = "", timeString = "", hecTimeString = "";
-         String 
-         
-         year, month, day, hour, minute,  second;
+        String line = "", dateString = "", timeString = "", hecTimeString = "";
+        String year, month, day, hour, minute, second;
 
-
-         
-                 
-               int lineIndex;
+        int lineIndex;
 
         try {
             BufferedReader importFile = new BufferedReader(new FileReader(file));
@@ -317,8 +311,8 @@ public class Importer {
             hour = timeString.substring(hourStartChar - 1, hourStartChar - 1 + 2);
             minute = timeString.substring(minuteStartChar - 1, minuteStartChar - 1 + 2);
             second = "00";
-            hecTimeString = month + "/" + day + "/" + year + " " +
-                    hour + ":" + minute + ":" + second;
+            hecTimeString = month + "/" + day + "/" + year + " "
+                    + hour + ":" + minute + ":" + second;
             result.set(hecTimeString);
 
         } catch (IOException e) {
@@ -329,13 +323,11 @@ public class Importer {
     }
 
     private TimeSeriesContainer getMetaDataFromFileName(File file, TimeSeriesContainer timeSeriesContainer) {
-         String 
-         
-         watershed, location, parameterFromFile, parameter, units, valueType,version   ;
+        String watershed, location, parameterFromFile, parameter, units, valueType, version;
 
-         TimeSeriesContainer  result   = timeSeriesContainer;
+        TimeSeriesContainer result = timeSeriesContainer;
 
-           int stopChar = file.getName().length() - fileExtension.length();
+        int stopChar = file.getName().length() - fileExtension.length();
         String fileName = file.getName().substring(0, stopChar);
         String fileNameParts[] = fileName.split(fileNamePartsDelimiter);
 
@@ -364,7 +356,7 @@ public class Importer {
             valueType = "INST-VAL";
         } else if (parameterFromFile.startsWith("T")) {
             parameter = "TEMPERATURE";
-            units = "°C";
+            units = "Â°C";
             valueType = "INST-VAL";
         } else {
             parameter = "";
@@ -385,16 +377,9 @@ public class Importer {
     }
 
     private FileFilter getImportFileFilter(final String fileExtension) {
-        FileFilter filter = new  
+        FileFilter filter = new FileFilter() {
 
-              FileFilter( ) {
-
-                   
-                 
-            
-
-            public    
-                 boolean accept(File file) {
+            public boolean accept(File file) {
                 String filename = file.getName().toUpperCase();
                 return filename.endsWith(fileExtension.toUpperCase());
             }
@@ -416,8 +401,8 @@ public class Importer {
             LineNumberReader lineRead = new LineNumberReader(fileRead);
             lineRead.skip(lastRec);
             int recordCount = lineRead.getLineNumber() - 1;
-            result =
-                    recordCount - firstDataLine + 2; //not sure why + 2 is needed
+            result
+                    = recordCount - firstDataLine + 2; //not sure why + 2 is needed
             fileRead.close();
             lineRead.close();
         } catch (IOException e) {
